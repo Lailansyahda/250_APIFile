@@ -35,6 +35,7 @@ async function create(req, res) {
       judul,
       sinopsis,
       tahun_terbit,
+      gambar,
       penulis_id,
       genre_id
     } = req.body;
@@ -46,10 +47,15 @@ async function create(req, res) {
       });
     }
 
+    const gambar = req.file
+    ? req.file.filename 
+    : null;
+
     const komik = await Komik.create({
       judul,
       sinopsis,
       tahun_terbit,
+      gambar,
       penulis_id
     });
 
@@ -109,6 +115,7 @@ async function update(req, res) {
       judul,
       sinopsis,
       tahun_terbit,
+      gambar,
       penulis_id
     });
 
