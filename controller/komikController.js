@@ -110,6 +110,10 @@ async function update(req, res) {
       });
     }
 
+    const gambar = req.file
+      ? req.file.filename 
+      : null;
+
     await komik.update({
       judul,
       sinopsis,
